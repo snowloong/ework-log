@@ -1,172 +1,138 @@
-<!--
- * @Author: finleyyao iamfinleyyao1997@163.com
- * @Date: 2025-04-01 12:05:02
- * @LastEditors: finleyyao iamfinleyyao1997@163.com
- * @LastEditTime: 2025-04-01 14:03:26
- * @FilePath: /git_log/git.md
- * @Description: 
- * 
--->
 | 日期 | 项目 | 提交内容 | 提交记录Hash码 |
 |------|------|----------|--------------|
-| 2025-03-03 | test-mgr | fix🐛: 添加两种任务类型，支持搜索 资方发消息催代办； 资方发消息催信披 | 6eb17b3 |
-| 2025-03-04 | test-web | feat✨: 取消 机构授权页 | 97d8e6734 |
-| 2025-03-04 | test-web | feat✨:  准入机构管理 授权/停止授权修改 | fefb68bbc |
-| 2025-03-04 | test-web | Merge branch 'dev-twoside' into sit-saas | ce0e3d349 |
-| 2025-03-04 | test-web | feat✨: 取消 机构授权页 | d660bda30 |
-| 2025-03-04 | test-web | feat✨:  准入机构管理 授权/停止授权修改 | 00462015d |
-| 2025-03-05 | test-web | feat✨: 根据消息ID 查询已邀请的产品信息 自动填充 | 0d21bf013 |
-| 2025-03-05 | test-web | fix🐛: fix | 71c70a269 |
-| 2025-03-05 | test-web | feat✨: 机构授权 颗粒度改造 | 132763b11 |
-| 2025-03-05 | test-web | Merge branch 'dev-twoside' into sit-saas | 59769dd7a |
-| 2025-03-05 | test-web | feat✨: 根据消息ID 查询已邀请的产品信息 自动填充 | 5bb134aeb |
-| 2025-03-05 | test-web | Merge branch 'dev-twoside' into sit-saas | d0b6b3c42 |
-| 2025-03-05 | test-web | fix🐛: fix | e94e670cb |
-| 2025-03-05 | test-web | Merge branch 'dev-twoside' into sit-saas | 6d73b15c6 |
-| 2025-03-05 | test-web | feat✨: 机构授权 颗粒度改造 | 1cdccf23d |
-| 2025-03-06 | test-web | fix🐛: update | c7a6d6a34 |
-| 2025-03-06 | test-web | fix🐛: update | f4d13f60f |
-| 2025-03-06 | test-web | fix🐛: update | 50517eb50 |
-| 2025-03-06 | test-web | fix🐛: update | f24a76bf3 |
-| 2025-03-06 | test-web | fix🐛: udpate | 99b89f448 |
-| 2025-03-06 | test-web | fix🐛: update | 0329d2f8d |
-| 2025-03-06 | test-web | fix🐛: fix | 1062bfd48 |
-| 2025-03-06 | test-web | Merge branch 'dev-twoside' into sit-saas | 2124aed48 |
-| 2025-03-06 | test-web | fix🐛: update | 348365134 |
-| 2025-03-06 | test-web | Merge branch 'dev-twoside' into sit-saas | 081e20d42 |
-| 2025-03-06 | test-web | fix🐛: update | 5273f077d |
-| 2025-03-06 | test-web | Merge branch 'dev-twoside' into sit-saas | cb40728c7 |
-| 2025-03-06 | test-web | fix🐛: update | eff559cfc |
-| 2025-03-06 | test-web | fix🐛: update | 8d7010e3a |
-| 2025-03-06 | test-web | Merge branch 'dev-twoside' into sit-saas | 2fd012c70 |
-| 2025-03-06 | test-web | fix🐛: update | 8e9a3615b |
-| 2025-03-06 | test-web | Merge branch 'dev-twoside' into sit-saas | 99c99a4b2 |
-| 2025-03-06 | test-web | fix🐛: udpate | f1d61b801 |
-| 2025-03-06 | test-web | Merge branch 'dev-twoside' into sit-saas | d5e4d16af |
-| 2025-03-06 | test-web | fix🐛: update | 5474adde1 |
-| 2025-03-06 | test-web | Merge branch 'dev-twoside' into sit-saas | cfa653eb9 |
-| 2025-03-06 | test-web | fix🐛: fix | 7354ba1af |
-| 2025-03-07 | test-mgr | fix🐛: update | 4b1c795 |
-| 2025-03-07 | test-mgr | feat✨: 加入筛选字段 | 1f3cb54 |
-| 2025-03-10 | icm-screenshot | feat✨:  (银保监)国家金融蜒管理局 搜索截图 | 0103a8e |
-| 2025-03-10 | meix-marketing-h5 | Merge branch 'master-xinding' into story-yrd | 2808cc6 |
-| 2025-03-10 | meix-marketing-h5 | Merge branch 'master-xinding' into sit-xinding | 86cf4c3 |
-| 2025-03-10 | test-web | fix🐛: 单词字段拼写错误 | e126b41d6 |
-| 2025-03-10 | test-web | fix:准入资料新授权自定义时间回显问题 | 640897896 |
-| 2025-03-10 | test-web | fix:准入资料新授权自定义时间回显问题 | c2fb027e7 |
-| 2025-03-10 | test-web | fix | 78bb7b6c9 |
-| 2025-03-10 | test-web | feat✨: 成功消息提示模板信息修改 | b591a4b68 |
-| 2025-03-10 | test-web | fix🐛 | 0c89bfcce |
-| 2025-03-10 | test-web | fix🐛:  utc+0时间格式化处理；初始化表单兼容旧的授权处理 | e53c0cbf0 |
-| 2025-03-10 | test-web | fix🐛: 单词字段拼写错误 | f190cc494 |
-| 2025-03-10 | test-web | fix:准入资料新授权自定义时间回显问题 | 1fca66775 |
-| 2025-03-10 | test-web | fix:准入资料新授权自定义时间回显问题 | e0ba76596 |
-| 2025-03-10 | test-web | fix | c616f4661 |
-| 2025-03-10 | test-web | Merge branch 'dev-twoside' into sit-saas | fa06e50f3 |
-| 2025-03-10 | test-web | feat✨: 成功消息提示模板信息修改 | aece3d7b5 |
-| 2025-03-10 | test-web | Merge branch 'dev-twoside' into sit-saas | 3fcf34dbc |
-| 2025-03-10 | test-web | Merge branch 'dev-twoside' into sit-saas | c775e447b |
-| 2025-03-10 | test-web | fix🐛 | 074d08f12 |
-| 2025-03-10 | test-web | Merge branch 'dev-twoside' into sit-saas | 345ae80be |
-| 2025-03-10 | test-web | fix🐛:  utc+0时间格式化处理；初始化表单兼容旧的授权处理 | 0b4510e91 |
-| 2025-03-11 | counter-operation-web | Merge remote-tracking branch 'origin/release-20250227' into dev-yrd | 87dc5a4 |
-| 2025-03-11 | test-web | feat✨:  修改授权数据增加resultId | 8fed4a509 |
-| 2025-03-11 | test-web | feat✨:  修改授权数据增加resultId | 73309226e |
-| 2025-03-11 | test-mgr | feat✨: 发送消息资方数排序 | 255aa06 |
-| 2025-03-12 | meix-marketing-h5 | Merge branch 'story-yrd' into sit-xinding | ee5be4d |
-| 2025-03-13 | meix-marketing-h5 | fix🐛: 个人投资者重新做合投，到证明材料节点未展示上次合投流程的金融资产材料 | de1ebf0 |
-| 2025-03-13 | meix-marketing-h5 | fix🐛: 产品客户有限合伙实名，实名信息页面，法人字段变未改成“执行事务合伙人” 账号：GGBBB2 | 14d8444 |
-| 2025-03-13 | meix-marketing-h5 | fix🐛: update | dc0005d |
-| 2025-03-13 | meix-marketing-h5 | fix🐛: 更新发送短信的接口 | 1119cec |
-| 2025-03-13 | meix-marketing-h5 | Revert "fix🐛: 投资端更改个人印章，手机开启旋转模式，横屏签预留签章时能写字的区域只有一半" | 27a282d |
-| 2025-03-13 | meix-marketing-h5 | fix🐛:产品客户重新实名产品名称产品备案编号未自动带出 | 1617663 |
-| 2025-03-13 | meix-marketing-h5 | fix🐛: 身份证重新认证 endDate传长期 | 4692a84 |
-| 2025-03-13 | meix-marketing-h5 | fix🐛: 投资端更改个人印章，手机开启旋转模式，横屏签预留签章时能写字的区域只有一半 | 76ef4d6 |
-| 2025-03-13 | meix-marketing-h5 | fix🐛: update | fe4e638 |
-| 2025-03-13 | meix-marketing-h5 | fix🐛: 投资端更换手机号 验证原手机号页面 字显示不完整 | 811226c |
-| 2025-03-13 | meix-marketing-h5 | fix🐛: 普通个人投资者合投完成后，重新做合投流程做到证明材料节点，金融资产已经带出上次的文件，点保存按钮报资产证明不能为空 | 9ed0096 |
-| 2025-03-14 | meix-marketing-h5 | fix:update | 6822bf4 |
-| 2025-03-14 | meix-marketing-h5 | fix🐛: update | 6b6d787 |
-| 2025-03-14 | meix-marketing-h5 | fix🐛: update | 69daf79 |
-| 2025-03-14 | meix-marketing-h5 | feat✨: 重新实名； 产品客户  证件号和产品类型不可改变，个人/机构 重新实名  证件号不可改变 | 19cdd21 |
-| 2025-03-14 | meix-marketing-h5 | fix🐛: 产品客户重新做合投到证明材料节点，点沿用上次合投材料无反应（做到证明材料节点在返回一地步重新提交基本信息表后在走到证明材料节点就不能点沿用按钮了） 如果第一次合投无证明材料节点，重做合投有证明材料节点沿用按钮点了也没反应 | 708d91b |
-| 2025-03-14 | meix-marketing-h5 | fix🐛: 个人重新实名 上一步 返回的路由错误 | 7358cb8 |
-| 2025-03-14 | meix-marketing-h5 | fix🐛: update | 317944e |
-| 2025-03-14 | test-mgr | feat✨: update | 1db9dc5 |
-| 2025-03-14 | test-mgr | feat✨:  添加字段 financialProfessionalOrgVisibleCount；generalProfessionalOrgVisibleCount | 7a94ebd |
-| 2025-03-17 | icm-screenshot | feat✨: 恒泰证券：启信宝工商异常截图时需要 公司名称 | 5e9579d |
-| 2025-03-17 | meix-marketing-h5 | feat✨: update | d9e5af3 |
-| 2025-03-17 | meix-marketing-h5 | feat✨:  产品类型 没有有默认值 不禁用；有默认值 授权人信息跟着变 | 5925515 |
-| 2025-03-17 | meix-marketing-h5 | fix🐛: update | 1bc74fa |
-| 2025-03-17 | meix-marketing-h5 | feat✨: 重新实名取实名字段 | cb9c568 |
-| 2025-03-17 | meix-marketing-h5 | feat✨: 更新/删除 vipLastIdentifyFlowId 防止getCookie 获取到值 | b278687 |
-| 2025-03-17 | meix-marketing-h5 | fix🐛: 保存材料去除 相应的附件ID | 4ab6be5 |
-| 2025-03-17 | meix-marketing-h5 | fix🐛: 更新实名证件信息 字段错误 | b085647 |
-| 2025-03-17 | meix-marketing-web | fix🐛: 历史bug修复 | b19ce6af |
-| 2025-03-17 | meix-marketing-web | fix🐛:  update 证件到期时间 字段取值错误 | 764de6d2 |
-| 2025-03-17 | meix-marketing-web | git🙈:  addd vscodehistory local plugin dir | 09ecbf60 |
-| 2025-03-18 | icm | feat✨: 更新确权管理 按键搜索查询的 新接口 | fe9590a |
-| 2025-03-18 | icm | git🙈: update | f605355 |
-| 2025-03-18 | meix-marketing-h5 | feat✨: 待办为空事自动关闭 | 6ec153b |
-| 2025-03-18 | meix-marketing-h5 | fix🐛: update | 38042d9 |
-| 2025-03-18 | meix-marketing-h5 | fix🐛: update | b464f4d |
-| 2025-03-18 | meix-marketing-h5 | fix🐛: update | 03b4477 |
-| 2025-03-18 | meix-marketing-h5 | feat✨: 公共上传组件 初始化后 是否由外部数据覆盖 | 19eb67f |
-| 2025-03-18 | meix-marketing-h5 | feat✨: 证件号默认填充 | 5d192d0 |
-| 2025-03-18 | vip-mobile | fix🐛: update | 232159730 |
-| 2025-03-18 | vip-mobile | Merge branch 'story-yrd' into vip-uat | a8b8eb69f |
-| 2025-03-18 | vip-mobile | feat✨: 驳回显示原因 | 2b5302265 |
-| 2025-03-18 | vip-mobile | fix🐛: update | dd27cf723 |
-| 2025-03-18 | vip-mobile | Merge branch 'story-yrd' into vip-uat | 4cc51c626 |
-| 2025-03-18 | vip-mobile | feat✨: udpate | 944a4119c |
-| 2025-03-18 | vip-mobile | Merge branch 'story-yrd' into vip-uat | 64a9caaa5 |
-| 2025-03-18 | vip-mobile | feat✨: 添加驳回材料 显示原因 | c50c32188 |
-| 2025-03-18 | vip-mobile | feat✨: 风测样式再修改 | 0536d0d0b |
-| 2025-03-18 | vip-mobile | Merge branch 'story-yrd' into vip-uat | adcdb436e |
-| 2025-03-18 | vip-mobile | feat✨: 风测样式修改 | bc0080694 |
-| 2025-03-19 | icm | feat✨: update | 13ed282 |
-| 2025-03-19 | icm | feat✨: update | ac66151 |
-| 2025-03-19 | icm | feat✨: update | 4e70aa1 |
-| 2025-03-19 | icm | feat✨:   1. 确权管理增加对isMannaCancel(管理人是否注销 0 否，1 是)处理；管理人注销时，点击管理人，跳转注销管理人画像页；产品不可点击跳转  2. 产品按键精灵由/queryManagerByKeywordsForFund改成/queryManagerByKeywordsForFundNew | 512f457 |
-| 2025-03-19 | meix-marketing-h5 | feat✨: fix update | 10df1b2 |
-| 2025-03-19 | vip-mobile | Merge branch 'story-yrd' into vip-uat | 353be13b2 |
-| 2025-03-19 | vip-mobile | feat✨: 风测表单校验自动滚动 | 1669d6e33 |
-| 2025-03-19 | vip-mobile | Merge branch 'story-yrd' into vip-uat | 345088144 |
-| 2025-03-19 | vip-mobile | Revert "feat✨: 添加驳回材料 显示原因" | c2d2ae027 |
-| 2025-03-19 | vip-mobile | Revert "feat✨: udpate" | 8ee1b6770 |
-| 2025-03-19 | vip-mobile | Revert "feat✨: 驳回显示原因" | 540a3a920 |
-| 2025-03-20 | meix-marketing-h5 | fix🐛: 首次个人实名调用接口错误修改 | 25e7aff |
-| 2025-03-21 | icm-python-spiders | feat✨: update | 01664e2 |
-| 2025-03-21 | icm-screenshot | feat✨: update | ccc1bca |
-| 2025-03-21 | icm-screenshot | feat✨: 恒泰证券证券水印时间戳 | a4628a8 |
-| 2025-03-24 | counter-operation-web | reslove react dev warning | 20c2d04 |
-| 2025-03-24 | counter-operation-web | Merge branch 'dev_gy' into dev-yrd | 2cc77cc |
-| 2025-03-24 | icm-screenshot | feat✨: update | 113fcc5 |
-| 2025-03-25 | test-mgr | feat✨: update | 5845f33 |
-| 2025-03-25 | test-mgr | feat✨: 榜单发布 支持 不在美市报名的 维护功能 | 588b836 |
-| 2025-03-26 | test-web | Merge branch 'prod-saas' into dev-twoside | 3c3a13417 |
-| 2025-03-26 | test-mgr | feat✨: 区别tab，避免操作失误 | fe5a343 |
-| 2025-03-27 | test-mgr | feat✨: update | b8ffb5f |
-| 2025-03-27 | test-mgr | feat✨: update | 81ecdab |
-| 2025-03-27 | test-mgr | feat✨: update | 973b263 |
-| 2025-03-27 | test-mgr | add log info | 63265a0 |
-| 2025-03-27 | test-mgr | feat✨: update | ec73f2b |
-| 2025-03-27 | test-mgr | feat✨: update | 5c7de61 |
-| 2025-03-27 | test-mgr | feat✨: update | 10c7c83 |
-| 2025-03-27 | vip-manager | feat✨: story-24346 | 6a1e2b789 |
-| 2025-03-27 | vip-manager | feat✨: update | 06609b385 |
-| 2025-03-27 | vip-manager | feat✨: 份额登录-净值查询导出 | c2c310c82 |
-| 2025-03-27 | vip-manager | fix🐛: 修复dataIndex的映射 | 6d54a4e43 |
-| 2025-03-27 | vip-manager | fix🐛: 更新 exportFields字段映射错误 | f8dc7dda3 |
-| 2025-03-27 | vip-manager | feat✨: 净值导出汇总弹窗的选择列数据 | 973acfab3 |
-| 2025-03-27 | vip-manager | feat✨: 净值列表添加默认导出列展示 | 3c501b5af |
-| 2025-03-27 | vip-manager | fix🐛: 修复dataIndex的映射 | 34929a79f |
-| 2025-03-27 | vip-manager | feat✨: 公共表格组件增加暴露属性 当前展示列(取渲染结果) | baf0bcd91 |
-| 2025-03-27 | vip-manager | feat✨: 净值查询导出增加选择列导出功能 | 69a5dbf12 |
-| 2025-03-27 | vip-manager | feat✨: 公共表格组件增加暴露属性 当前展示列 | 9bd30c7ec |
-| 2025-03-28 | test-web | feat✨: 机构直连接增加大赛查年排名 | 9a52b2582 |
-| 2025-03-28 | vip-manager | feat✨: 更新公共组件 导出列的渲染修改 （不影响原本逻辑） | 7b4b2ea75 |
-| 2025-03-28 | vip-manager | feat✨: 添加易运营净值查询缺少列 | 836a7b53f |
-| 2025-03-31 | test-mgr | feat✨: 还原 | dc2bca0 |
-| 2025-03-31 | test-mgr | fix🐛: 取history location pathname渲染 | 7db14e8 |
-| 2025-03-31 | vip-manager | fix🐛: 添加 取当前活动tab的table 导出列 | 88076c5c5 |
+| 2025-11-03 | counter-operation-web | Merge branch 'master' into dev | b7b7317 |
+| 2025-11-04 | counter-operation-web | ✨ feat: 新增数据监控仪表板功能 | 1f47dfd |
+| 2025-11-05 | icm-python-spiders | 🔧 fix: 更新数据库配置文件路径和joblib版本 | 70b9f97 |
+| 2025-11-05 | icm-python-spiders | :fire:  移除缓存文件夹 | aa4dc2d |
+| 2025-11-05 | icm-python-spiders | 🔧 fix: 更新.gitignore以优化缓存和日志文件的忽略规则 | 96d4004 |
+| 2025-11-06 | pfrank-app | feat✨: 增加过滤不跳转的展示页 | e5ca7bb |
+| 2025-11-06 | pfrank-app | feat✨: 增加过滤不跳转的展示页 | 8d05718 |
+| 2025-11-06 | pfrank-app | feat✨: 增加过滤不跳转的展示页 | a8368f6 |
+| 2025-11-07 | counter-operation-web | Merge branch 'dev' into sit | 783145b |
+| 2025-11-07 | counter-operation-web | ✨ feat: 新增数据监控看板交易分红一致性监控功能 | 836faf6 |
+| 2025-11-07 | counter-operation-web | ⚙️ config: 统一编码配置和增强 TypeScript 类型声明 | 3b707d4 |
+| 2025-11-10 | counter-operation-web | Merge branch 'dev' into sit | 4352fb6 |
+| 2025-11-10 | counter-operation-web | feat: 更新数据源维度参数 | 3ff86a3 |
+| 2025-11-10 | icm-python-spiders | sync | 46f0f20 |
+| 2025-11-10 | tousimu-web | ✨ feat: 添加动态类型和监控设置功能，更新相关组件和服务 | f65c0133e |
+| 2025-11-10 | tousimu-web | ✨ feat: 添加 TagStatistic 组件并更新 TagButton 样式 | 4dd88dfcf |
+| 2025-11-10 | tousimu-web | :sparkles:  持仓管理人舆情 | 48d5f6828 |
+| 2025-11-11 | counter-operation-web | Merge branch 'dev' | 26ac698 |
+| 2025-11-11 | counter-operation-web | Merge branch 'dev' into sit | b5f3f08 |
+| 2025-11-11 | counter-operation-web | ✨ feat: 增加表格列宽设置，优化数据监控看板显示 | 4125a3e |
+| 2025-11-11 | counter-operation-web | Merge branch 'dev' into sit | 94b887f |
+| 2025-11-11 | counter-operation-web | ✨ feat: 添加基金类型映射和已发布基金类型映射，优化产品比较功能 | cd3998e |
+| 2025-11-11 | counter-operation-web | Merge branch 'dev' into sit | 294d273 |
+| 2025-11-11 | counter-operation-web | ✨ feat: 增强交易分红一致性监控功能，新增数据源维度支持 | 1032d74 |
+| 2025-11-11 | tousimu-web | feat: 更新子动态类型选择选择更改的查询 | d1fb4adb4 |
+| 2025-11-11 | tousimu-web | build for test | bf913bd52 |
+| 2025-11-11 | tousimu-web | 🔧 fix(publicOpinion): 优化用户交互逻辑和错误处理机制 | 004b11cbb |
+| 2025-11-11 | tousimu-web | build for test | 84b265a4c |
+| 2025-11-11 | tousimu-web | ✨ feat(publicOpinion): 完善舆情跟踪设置和数据交互功能 | 23ae9cd15 |
+| 2025-11-11 | tousimu-web | build for test | f4842edeb |
+| 2025-11-11 | tousimu-web | build for test | 4a75eaa7d |
+| 2025-11-11 | tousimu-web | ✨ feat: 更新动态红色数字响应接口，确保所有字段为必填项 | 58d484548 |
+| 2025-11-11 | tousimu-web | ♻️ refactor(publicOpinion): 重构舆情管理模块数据流和组件结构 | 1d266783a |
+| 2025-11-11 | tousimu-web | build fort test | 738ac0fa9 |
+| 2025-11-11 | tousimu-web | Merge remote-tracking branch 'origin/sit' into story-25467 | b94fa6f97 |
+| 2025-11-12 | tousimu-web | update menu code | f231f5cc2 |
+| 2025-11-12 | tousimu-web | fix: save always | 7730f03f0 |
+| 2025-11-12 | tousimu-web | fix: 小红点角标显示问题；动态设置之后刷新问题 | 346043f57 |
+| 2025-11-12 | tousimu-web | feat: 跟踪项设置添加手动保存按钮 | 7ddc231fc |
+| 2025-11-12 | tousimu-web | fix: 修复参数不正确 | f4e118c68 |
+| 2025-11-12 | tousimu-web | ✨ feat(publicOpinion): 实现详情查看和配置管理系统 | 3610895db |
+| 2025-11-13 | counter-operation-web | update | 8fbdd4a |
+| 2025-11-13 | counter-operation-web | Merge branch 'dev' | ee2417d |
+| 2025-11-13 | counter-operation-web | ✨ feat: 修改查询按钮的页码参数为1，确保搜索功能的一致性 | e93ac7e |
+| 2025-11-13 | counter-operation-web | Merge branch 'dev' into sit | 061d129 |
+| 2025-11-13 | counter-operation-web | Merge branch 'dev' | 7aa8382 |
+| 2025-11-13 | counter-operation-web | ✨ feat: 更新交易分红一致性监控功能，支持按产品ID刷新数据 | 5b62c6a |
+| 2025-11-13 | icm-python-spiders | 🔧 fix: 更新请求体中的primaryInvestType参数以支持多个投资类型 | fa31a4b |
+| 2025-11-13 | tousimu-web | update | 4cfd17102 |
+| 2025-11-13 | tousimu-web | ✨ feat(publicOpinion): 新增默认监控设置初始化功能 | 182d258c7 |
+| 2025-11-13 | tousimu-web | 🎨 improve(publicOpinion): 优化用户选项变化时的分页逻辑 | fe5e02cc4 |
+| 2025-11-13 | tousimu-web | 🐛 fix(publicOpinion): 修复设置更新后数据同步问题 | 8c145ff56 |
+| 2025-11-13 | tousimu-web | fix: 更新表格唯一ID | 6a73af424 |
+| 2025-11-14 | counter-operation-web | fix: correct managerCode reference in SummaryDrawer and update related data fetching logic | ca017a1 |
+| 2025-11-14 | counter-operation-web | feat: add SummaryModal and product comparison functionality with data fetching and state management | bc933a1 |
+| 2025-11-14 | counter-operation-web | refactor: restructure tab panes in TaProductManagement for improved readability and organization | f509256 |
+| 2025-11-14 | counter-operation-web | refactor: update LastEditTime and comment out dispatch calls in various components for improved clarity and maintenance | 0b16714 |
+| 2025-11-14 | counter-operation-web | refactor: update PendingVerifying and TaProductManagement components for improved state management and code clarity | f94f106 |
+| 2025-11-14 | tousimu-web | release-20251114 dist | d07eb03e6 |
+| 2025-11-14 | tousimu-web | Merge branch 'story-25467' into release-20251114 | 0a8e3894a |
+| 2025-11-14 | tousimu-web | merge | 2c26307ac |
+| 2025-11-14 | tousimu-web | 🔧 chore: 配置调整和表格优化 | 7fdf8965d |
+| 2025-11-17 | counter-operation-web | fix: update SummaryDrawer to call handleSearch on visibility change and adjust modal width in CompareDiffModal | 4a2d1bc |
+| 2025-11-17 | icm-python-spiders | ✨ feat(union_basic_data): 添加 credit_org_code 字段支持并优化数据库连接管理 | 9fe8092 |
+| 2025-11-17 | pfrank-app | ✨ 更新 .gitignore 文件，添加 .vscode 和 .idea 目录 | 406b254 |
+| 2025-11-17 | pfrank-h5 | ✨ feat: 新增中证资讯标签页及优化活动报道展示 | 1d9cdc7 |
+| 2025-11-17 | tousimu-web | 🐛 fix: 修复用户引导状态管理缓存问题 | 561818ac7 |
+| 2025-11-18 | icm-python-spiders | ✨ feat: 新增银河大赛中证报RSS订阅转发功能 | e0b93ef |
+| 2025-11-18 | icm-python-spiders | 📦 build: 更新项目依赖配置 | af00178 |
+| 2025-11-18 | icm-python-spiders | ✨ feat: 新增银河大赛中证报RSS订阅转发功能 | e390680 |
+| 2025-11-18 | pfrank-h5 | ✨ feat: 实现中证资讯动态分类加载和双标签页数据联动 | 0bb75de |
+| 2025-11-18 | pfrank-h5 | ✨ feat: 实现中证资讯动态分类加载和双标签页数据联动 | f2258fc |
+| 2025-11-18 | pfrank-mgr | ✨ feat(NewsPublish): 新增资讯报道子栏目功能 | 6f272a0 |
+| 2025-11-19 | pfrank-app | ✨ feat: 添加文章详情弹窗展示功能 | 23ab783 |
+| 2025-11-19 | pfrank-app | ✨ feat: 为文章列表页面添加加载状态和优化交互体验 | 9b8b4e4 |
+| 2025-11-19 | pfrank-app | ✨ feat: 优化 smCUI 页面路由动态匹配机制并新增文章子类别查询接口 | c0d86b4 |
+| 2025-11-19 | pfrank-app | 🐛: 修复自动填充未填充companyCode | 42b56ec |
+| 2025-11-19 | pfrank-h5 | 🐛 fix: 修复活动资讯页面状态管理和数据加载问题 | 8988b39 |
+| 2025-11-19 | pfrank-h5 | 🐛 fix: 修复活动资讯页面状态管理和数据加载问题 | b2f4fd9 |
+| 2025-11-19 | pfrank-h5 | 🐛 fix: 修复标签页切换时子类别参数传递问题 | 2f71c62 |
+| 2025-11-19 | pfrank-h5 | ✨ feat: 添加分类标签吸顶效果和页面滚动优化 | 8f4ea55 |
+| 2025-11-19 | pfrank-h5 | ♻️ refactor: 优化代码结构和交互体验 | efd80bf |
+| 2025-11-19 | pfrank-h5 | 👕更新标题左对齐 | 021b825 |
+| 2025-11-19 | pfrank-h5 | 🌱: 更新获取文章子类型接口参数status=1 默认已发布 | 368f222 |
+| 2025-11-20 | counter-operation-web | Merge remote-tracking branch 'origin/master' into sit | 9fab48b |
+| 2025-11-20 | counter-operation-web | fix: update userNo assignment in NewTrusteeshipSecretKey formData | 72730ed |
+| 2025-11-20 | counter-operation-web | Merge remote-tracking branch 'origin/master' into sit | 120b3fa |
+| 2025-11-20 | counter-operation-web | fix: update userNo assignment in NewTrusteeshipSecretKey formData | e888be1 |
+| 2025-11-20 | counter-operation-web | Merge remote-tracking branch 'origin/master' into sit | 141b567 |
+| 2025-11-20 | counter-operation-web | ✨ feat: 新增一创(1026)密钥管理表单配置 | 214336d |
+| 2025-11-20 | icm | feat(right): ✨ 确权模块添加专用产品搜索接口 | 7357225 |
+| 2025-11-20 | icm | Revert "feat(product): ✨ 更新产品按键精灵接口并添加文件头注释" | 05ab943 |
+| 2025-11-20 | icm | feat(right): ✨ 关联交易页面添加管理人注销标识 | 6639d00 |
+| 2025-11-20 | icm | feat(right): ✨ 产品确权页面添加管理人注销标识 | 8b1d220 |
+| 2025-11-20 | icm | feat(right): ✨ 项目确权页面添加管理人注销标识 | 5e61f8f |
+| 2025-11-20 | icm | feat(product): ✨ 更新产品按键精灵接口并添加文件头注释 | f76596c |
+| 2025-11-20 | pfrank-app | fix build error | a7ac09e |
+| 2025-11-20 | pfrank-app | Revert "update" | 94ea24a |
+| 2025-11-20 | pfrank-app | update | 3a190b1 |
+| 2025-11-20 | pfrank-app | 💄 style: 优化标签页面板高度限制 | ea8c7bd |
+| 2025-11-20 | pfrank-app | 🐛 fix: 修复弹窗渲染容器和样式问题 | 1e8674d |
+| 2025-11-20 | pfrank-h5 | ⚡️ perf(webpack): 生产环境移除 console 日志 | 02604aa |
+| 2025-11-20 | pfrank-h5 | ✨ feat: 添加请求队列管理器并增强调试日志 | 58c4be8 |
+| 2025-11-20 | pfrank-h5 | ♻️ refactor: 优化新闻列表加载逻辑和代码格式 | 6516c20 |
+| 2025-11-20 | pfrank-h5 | 💄 style: 设置活动资讯头部导航背景色 | bd472b5 |
+| 2025-11-20 | pfrank-mgr | 🐛 fix(NewsPublish): 修复编辑文章后子栏目列表未刷新问题 | 303eb72 |
+| 2025-11-20 | pfrank-mgr | 🐛 fix(newsEditModal): 修复子栏目字段提交格式问题 | 9c0bf35 |
+| 2025-11-21 | pfrank-mgr | 🐛 修复资讯发布页面初始化时未加载子分类选项的问题 | 6c71dae |
+| 2025-11-21 | tousimu-web | 🎨 style(publicOpinion): 优化跟踪设置表格滚动配置 | 52d37ab40 |
+| 2025-11-21 | tousimu-web | 🎨 style(publicOpinion): 优化跟踪设置表格滚动配置 | 7d37edaf5 |
+| 2025-11-24 | pfrank-mgr | ✨ feat: 富文本编辑器增加文本对齐功能 | a657ca5 |
+| 2025-11-24 | tousimu-web | 🔥 chore(publicOpinion): 删除舆情持仓管理模块废弃的SVG图标文件 | 54b98b308 |
+| 2025-11-25 | easy-operation-mgt | fix: custo_acco_no | f8c1f591 |
+| 2025-11-25 | easy-operation-mgt | fix: update missing import | a6cb24ba |
+| 2025-11-25 | easy-operation-mgt | ✨ feat: 新增中信证券划款指令上行功能 | d2c95a4d |
+| 2025-11-25 | pfrank-app | 🐛 fix: 修复弹窗滚动问题 | bb0d19d |
+| 2025-11-25 | pfrank-app | ✨ feat: 优化免责声明弹窗展示方式 | ee3a476 |
+| 2025-11-25 | pfrank-h5 | 🐛 fix(apply): 添加企业代码字段自动填充 | be2614b |
+| 2025-11-25 | pfrank-h5 | ✨ feat(apply): 支持富文本内容渲染 | 87d3f24 |
+| 2025-11-25 | pfrank-mgr | ✨ feat: 引入富文本编辑器并完善禁用态样式 | 582b13b |
+| 2025-11-26 | counter-operation-web | Merge branch 'dev' into sit | 7601a36 |
+| 2025-11-26 | counter-operation-web | ✨ feat: 优化TA产品管理页面跳转和状态管理 | ab103e8 |
+| 2025-11-26 | tousimu-web | ♻️ refactor(publicOpinion): 重构详情展示组件架构 | 2337fa5bd |
+| 2025-11-27 | cmsam-manager-web | ✨ feat(userManagement): 新增渠道用户管理页面 | 90eb663 |
+| 2025-11-27 | cmsam-manager-web | Initial commit | d79099d |
+| 2025-11-27 | pfrank-app | feat✨: 强制弹出数据授权说明 招商大赛 | 1a2e8f6 |
+| 2025-11-27 | pfrank-h5 | feat✨: 强制弹出数据授权说明 招商大赛 | 96d5614 |
+| 2025-11-28 | cmsam-manager-web | ✨ feat(management|routes|i18n): 新增管理页面、路由与菜单国际化项 | 46b0330 |
+| 2025-11-28 | cmsam-manager-web | ✨ feat: 新增用户管理模块完整功能 | 560e2ef |
+| 2025-11-28 | pfrank-app | Merge branch 'release-20251128' | 7a85727 |
+| 2025-11-28 | pfrank-app | Merge branch 'release-20251120' into release-20251128 | 95a22d8 |
+| 2025-11-28 | pfrank-app | Merge branch 'dev' | dd9971c |
+| 2025-11-28 | pfrank-app | feat✨: 强制弹出数据授权说明 招商大赛 | 93d461c |
+| 2025-11-28 | pfrank-h5 | feat✨: 强制弹出数据授权说明 招商大赛 | 5cdbcbf |
+| 2025-11-28 | tousimu-web | Build dist for release-20251128 | 78ec94132 |
+| 2025-11-28 | tousimu-web | Merge branch 'story-25467' into release-20251128 | ed9b225b7 |

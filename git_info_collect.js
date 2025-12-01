@@ -1,4 +1,4 @@
-const SCAN_PATH = "/Users/finleyyao/meix";
+const SCAN_PATH = "/Users/finley/meix";
 const SAVE_PATH = "./logs/";
 const IGNORE_DIR = [
   "amac_library",
@@ -7,8 +7,8 @@ const IGNORE_DIR = [
   "vmtouch",
   "git_log",
 ];
-const START_DATE = "2025-03-01";
-const END_DATE = "2025-03-31";
+const START_DATE = "2025-11-01";
+const END_DATE = "2025-11-31";
 const fs = require("fs");
 const path = require("path");
 
