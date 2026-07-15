@@ -1,12 +1,3 @@
-/*
- * @Author: yaoruidong yaord@meix.com
- * @Date: 2025-12-01 09:41:22
- * @LastEditors: yaoruidong yaord@meix.com
- * @LastEditTime: 2025-12-01 10:08:28
- * @FilePath: /ework-log/work_time_collect.js
- * @Description: 
- * 
- */
 const xlsx = require("xlsx");
 const fs = require('fs');
 const https = require('https');
@@ -28,7 +19,6 @@ function formatDateTime(d) {
   const y = d.getFullYear();
   const m = pad(d.getMonth() + 1);
   const day = pad(d.getDate());
-  // return only date part for consistency
   return `${y}-${m}-${day}`;
 }
 
@@ -42,9 +32,8 @@ function formatDateOnly(d) {
 
 // Parse various duration formats into decimal hours. Returns null if cannot parse.
 function parseDurationToHours(val) {
-  if (val == null || val === '') return null;
+  if (val == null || val === '' || val === '--' || val === '-') return null;
   if (typeof val === 'number') {
-    // Excel can store durations as fraction of day (<=1)
     return val <= 1 ? val * 24 : val;
   }
   const s = String(val).trim();
@@ -76,7 +65,6 @@ function fetchHolidayYear(year) {
         try {
           const obj = JSON.parse(raw);
           const map = {};
-          // Walk object to find date entries with status
           function walk(o) {
             if (!o || typeof o !== 'object') return;
             for (const k of Object.keys(o)) {
@@ -99,68 +87,69 @@ function fetchHolidayYear(year) {
   });
 }
 
-// 新增 Excel 读取逻辑
+// 读取并解析 Excel 数据
 try {
   const workbook = xlsx.readFile(FILE_PATH);
   const sheetName = workbook.SheetNames[0];
   const worksheet = workbook.Sheets[sheetName];
 
-  // 将工作表数据转换为 JSON 格式
-  const data = xlsx.utils.sheet_to_json(worksheet, { raw: true });
+  // 使用 header:1 获取原始行数组
+  const allRows = xlsx.utils.sheet_to_json(worksheet, { header: 1, raw: true, defval: null });
+
+  // 筛选数据行：col[0] 为日期格式 "2026/06/01 星期一"
+  const datePattern = /^(\d{4})\/(\d{2})\/(\d{2})\s*(星期|周)/;
+  const dataRows = allRows.filter(row => row[0] && typeof row[0] === 'string' && datePattern.test(row[0]));
+
+  console.log(`解析到 ${dataRows.length} 行打卡数据`);
 
   // 自动收集要查询的年份，并从 Timor API 获取节假日数据
   const years = new Set();
-  data.forEach((row) => {
-    const rawTime = row['时间'];
-    let d = null;
-    if (rawTime instanceof Date) d = rawTime;
-    else if (typeof rawTime === 'number') d = excelDateToJSDate(rawTime);
-    else {
-      const parsed = new Date(String(rawTime || ''));
-      if (!isNaN(parsed)) d = parsed;
-    }
-    if (d && !isNaN(d.getTime())) years.add(d.getFullYear());
+  dataRows.forEach((row) => {
+    const match = String(row[0]).match(datePattern);
+    if (match) years.add(parseInt(match[1], 10));
   });
 
-  // Fetch holiday maps for all years (if any)
-  const apiHolidayMap = {}; // date -> status
+  // Fetch holiday maps for all years
+  const apiHolidayMap = {};
   const yearArr = Array.from(years.values());
   const fetchPromises = yearArr.map((y) => fetchHolidayYear(y).catch((e) => {
     console.warn(`获取 ${y} 年节假日失败：`, e.message || e);
     return {};
   }));
 
-  // Proceed asynchronously: fetch then process data
+  // Proceed asynchronously
   (async () => {
     try {
       const maps = await Promise.all(fetchPromises);
       maps.forEach((m) => Object.assign(apiHolidayMap, m));
 
-      const filteredData = data
+      const filteredData = dataRows
         .map((row) => {
-          // 时间: handle Date, Excel serial number, or string
-          const rawTime = row['时间'];
-          let timeText = '';
-          let parsedDate = null;
-          if (rawTime instanceof Date) {
-            parsedDate = rawTime;
-            timeText = formatDateTime(rawTime);
-          } else if (typeof rawTime === 'number') {
-            parsedDate = excelDateToJSDate(rawTime);
-            timeText = formatDateTime(parsedDate);
-          } else {
-            parsedDate = new Date(String(rawTime || ''));
-            timeText = parsedDate && !isNaN(parsedDate.getTime()) ? formatDateTime(parsedDate) : (rawTime != null ? String(rawTime) : '');
-          }
+          // 列索引:
+          // col[0]  = 日期 "2026/06/01 星期一"
+          // col[5]  = 所属规则 "900-1800"
+          // col[6]  = 班次 "09:00-11:30、13:00-18:00" 或 "休息"
+          // col[10] = 标准工作时长(小时)
+          // col[11] = 实际工作时长(小时)
+          // col[12] = 假勤申请/考勤结果
 
-          const dateOnly = formatDateOnly(parsedDate || new Date(timeText));
+          const rawDate = String(row[0] || '');
+          const shift = row[6] != null ? String(row[6]).trim() : '';
+          const rawHours = row[11]; // 实际工作时长
 
-          // 实际工作时长: parse to decimal hours where possible
-          const rawDur = row['__EMPTY'];
-          const hoursNumeric = parseDurationToHours(rawDur);
-          const displayDur = hoursNumeric == null ? (rawDur == null ? '' : String(rawDur)) : hoursNumeric.toFixed(1);
+          // 解析日期
+          const match = rawDate.match(datePattern);
+          if (!match) return null;
+          const dateOnly = `${match[1]}-${match[2]}-${match[3]}`;
 
-          // 判断是否应过滤：优先使用 Timor API 返回的 status（若存在），status: 0 工作日,1 周末,2 节假日,3 调休补班
+          // 如果班次为"休息"则跳过
+          if (shift === '休息') return null;
+
+          // 实际工作时长: parse to decimal hours
+          const hoursNumeric = parseDurationToHours(rawHours);
+          const displayDur = hoursNumeric == null ? (rawHours == null ? '' : String(rawHours)) : hoursNumeric.toFixed(1);
+
+          // 判断是否应过滤：优先使用 Timor API 返回的 status
           let skip = false;
           const apiStatus = apiHolidayMap[dateOnly];
           if (apiStatus !== undefined) {
@@ -170,25 +159,23 @@ try {
           } else {
             // fallback: 按自然周末过滤
             const dt = new Date(dateOnly + 'T00:00:00');
-            const dayOfWeek = dt.getDay(); // 0 Sun .. 6 Sat
+            const dayOfWeek = dt.getDay();
             skip = dayOfWeek === 0 || dayOfWeek === 6;
           }
 
           if (skip) return null;
 
-          const target = {
+          return {
             时间: dateOnly,
-            班次: row['__EMPTY_2'] || '',
+            班次: shift || '正常',
             实际工作时长: displayDur,
             _hoursNumeric: hoursNumeric == null ? 0 : hoursNumeric,
           };
-          return target;
         })
         .filter((i) => i)
         .reverse();
 
       const totalHours = filteredData.reduce((acc, row) => acc + (row._hoursNumeric || 0), 0);
-
       const workDays = Math.floor(totalHours / 8);
       const remainHours = totalHours % 8;
       const durationText = `${workDays}天${remainHours.toFixed(1)}小时`;
@@ -204,7 +191,7 @@ try {
       console.error('处理数据时出错：', e.message || e);
     }
   })();
-  
+
 } catch (err) {
   console.error("读取 Excel 文件失败:", err.message);
 }
