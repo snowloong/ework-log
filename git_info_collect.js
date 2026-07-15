@@ -7,10 +7,41 @@ const IGNORE_DIR = [
   "vmtouch",
   "git_log",
 ];
-const START_DATE = "2025-11-01";
-const END_DATE = "2025-11-31";
 const fs = require("fs");
 const path = require("path");
+const xlsx = require("xlsx");
+
+// 从 Excel 动态读取时间区间
+const EXCEL_PATH = "/Users/finley/meix/ework-log/work.xlsx";
+const DATE_PATTERN = /^(\d{4})\/(\d{2})\/(\d{2})\s*(星期|周)/;
+
+function getDateRangeFromExcel() {
+  const workbook = xlsx.readFile(EXCEL_PATH);
+  const sheetName = workbook.SheetNames[0];
+  const worksheet = workbook.Sheets[sheetName];
+  const allRows = xlsx.utils.sheet_to_json(worksheet, { header: 1, raw: true, defval: null });
+
+  const dates = [];
+  allRows.forEach(row => {
+    if (row[0] && typeof row[0] === 'string') {
+      const match = String(row[0]).match(DATE_PATTERN);
+      if (match) {
+        dates.push(`${match[1]}-${match[2]}-${match[3]}`);
+      }
+    }
+  });
+
+  if (dates.length === 0) {
+    console.warn('未从 Excel 解析到有效日期，使用默认区间');
+    return { start: "2026-06-01", end: "2026-06-30" };
+  }
+
+  dates.sort();
+  return { start: dates[0], end: dates[dates.length - 1] };
+}
+
+const { start: START_DATE, end: END_DATE } = getDateRangeFromExcel();
+console.log(`从 ${EXCEL_PATH} 读取时间区间: ${START_DATE} ~ ${END_DATE}`);
 
 // git log --since="2025-02-18" --until="2025-02-31" --author="yaoruidong" --pretty=format:"%h - %an, %ad : %s" --date=short > ~/Desktop/meix-marketing-h5.log
 const { execSync } = require("child_process");
